@@ -1,0 +1,145 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #050505;
+  background-image: var(--graffiti-pattern);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  padding: 2.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65));
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  width: min(420px, 96vw);
+  background: #f7c529;
+  border-radius: 18px;
+  padding: 2rem 1.4rem 2.3rem;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35), 0 2px 10px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  isolation: isolate;
+  z-index: 1;
+}
+
+.reflective-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 55%);
+  border-radius: inherit;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  filter: blur(0.4px);
+}
+
+.card-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.card-logo img {
+  max-width: 210px;
+  width: 70%;
+  height: auto;
+  display: block;
+}
+
+.tagline {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.64);
+  font-size: 0.98rem;
+  text-transform: lowercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 1rem;
+}
+
+.link-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link-chip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.82rem 1rem 0.78rem 1.05rem;
+  border-radius: 18px;
+  color: #fff;
+  font-size: 1.05rem;
+  text-transform: lowercase;
+  letter-spacing: 0.4px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.24);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.link-chip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.32);
+}
+
+.link-chip svg {
+  flex-shrink: 0;
+}
+
+.link-chip__left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.link-chip__icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.link-chip.youtube {
+  background: linear-gradient(135deg, #c40000, #db0000);
+}
+
+.link-chip.tiktok {
+  background: linear-gradient(135deg, #0c1b5a, #0b1a63);
+}
+
+.link-chip.instagram {
+  background: linear-gradient(135deg, #d30388, #bf0079);
+}
+
+.link-chip.sociabuzz {
+  background: linear-gradient(135deg, #3b750b, #2f6409);
+}
+
+@media (max-width: 520px) {
+  .card {
+    width: 85vw;
+    padding: 1.4rem 1.1rem 1.6rem;
+  }
+
+  .card-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .link-chip {
+    font-size: 1rem;
+    padding-inline: 0.9rem;
+  }
+}
